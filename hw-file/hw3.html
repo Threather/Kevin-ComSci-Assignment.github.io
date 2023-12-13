@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ite103</title>
     <style>
       html {background-color: white;}
@@ -12,10 +12,16 @@
         display: flex;
         justify-content: space-around; /* Add space around images */
         align-items: center;
+        flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+      }
+      .imageside img {
+        width: 100%; /* Make images responsive */
+        max-width: 450px; /* Maximum width of images */
+        height: auto; /* Maintain aspect ratio */
       }
       table {
         border-collapse: collapse;
-        width: auto; /* Adjust table width to fit content */
+        width: 100%; /* Make table responsive */
         margin: auto; /* Center the table */
       }
       th, td {
@@ -26,13 +32,18 @@
       .photo {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap; /* Allow images to wrap on smaller screens */
       }
       h1 {
         border: 3px solid black;
         background-color: aqua;
         text-align: center;
       }
-
+      @media (min-width: 600px) {
+        .imageside img, .photo img {
+          width: 450px;
+        }
+      }
     </style>
   </head>
   <body>

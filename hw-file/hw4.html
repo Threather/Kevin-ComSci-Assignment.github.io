@@ -1,12 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+    <style>
+        /* Importing the 'Mona Sans' font */
+        @font-face {
+            font-family: 'Mona Sans';
+            src: url('MonaSans.woff2') format('woff2'),
+                 url('MonaSans.woff') format('woff');
+        }
+
+        body {
+            background-color: #181a1b;
+            color: #a8a8a8;
+            font-family: 'Mona Sans', sans-serif;
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: 40%;
+        }
+
+        #Home, #News, #FacultyMembers, #Programs, #ComputerLabs {
+            background-color: #181a1b;
+            color: #a8a8a8;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image-container img {
+            width: 30%;
+            height: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .image-container {
+                flex-direction: column;
+            }
+
+            .image-container img {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  
-
+    <nav>
+        <a id="Home" href="#">Home</a>
+        <a id="News" href="#">News</a>
+        <a id="FacultyMembers" href="#">Faculty Members</a>
+        <a id="Programs" href="#">Programs</a>
+        <a id="ComputerLabs" href="#">Computer Labs</a>
+    </nav>
+    <p>សូមស្វាគមន៍មកកាន់ មហាវិទ្យាល័យវិទ្យាសាស្រ្ត និងបច្ចេកវិទ្យា នៃសកលវិទ្យាល័យមក្ពុជា។ សម្រាប់ប្អូនដែលចង់បន្តការសិក្សា​ថ្នាក់បរិញ្ញាបត្ររង ឬថ្នាក់បរិញ្ញាបត្រ។​ សូមចុះឈ្មោះជាមួយយើងខ្ញុំ​តាមរយៈអនឡាញ ឬទៅកាន់ សកលវិទ្យាល័យកម្ពុជាដោយផ្ទាល់ក៏បាន៕</p>
+    <p>Welcome to the College of Science and Technology of The University of Cambodia. For Everyone who wishes to pursue for any AA and BA degrees of the study programms, please regester now on visit the campus of The Universty of Cambodia.</p>
+    <div class="image-container">
+        <img src="../photo/1.jpg" alt="Image 1">
+        <img src="../photo/10.jpg" alt="Image 2">
+        <img src="../photo/2.jpg" alt="Image 3">
+    </div>
 </body>
-
-
 </html>

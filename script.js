@@ -34,6 +34,9 @@ window.onload = function() {
     document.getElementById("homework3Link").addEventListener("click", function(event) {
         displayHomework(event, "./hw-file/hw3.html");
     });
+    document.getElementById("homework4Link").addEventListener("click", function(event) {
+        displayHomework(event, "./hw-file/hw4.html");
+    });
     backButton.addEventListener("click", goBack);
 
     // Functions

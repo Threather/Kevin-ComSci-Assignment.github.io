@@ -24,19 +24,32 @@
 
             .person {
                 display: flex;
-                align-items: start;
+                flex-direction: column;
+                align-items: center;
                 gap: 20px;
                 margin-bottom: 2em;
             }
 
             .person img {
-                width: 200px;
-                height: 200px;
+                width: 100%;
+                max-width: 200px;
+                height: auto;
                 object-fit: cover;
             }
 
             .person .info {
-                flex-grow: 1;
+                text-align: center;
+            }
+
+            @media (min-width: 768px) {
+                .person {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                .person .info {
+                    text-align: left;
+                }
             }
         </style>
     </head>

@@ -5,120 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 4</title>
     <style>
-        /* Importing the 'Mona Sans' font */
-        @font-face {
-            font-family: 'Mona Sans';
-            src: url('MonaSans.woff2') format('woff2'),
-                 url('MonaSans.woff') format('woff');
-        }
-
-        body {
-            background-color: #181a1b;
-            color: #a8a8a8;
-            font-family: 'Mona Sans', sans-serif;
-            background-position: right center;
-            background-repeat: no-repeat;
-            background-size: 40%;
-        }
-
-        #Home, #News, #FacultyMembers, #Programs, #ComputerLabs {
-            background-color: #a8a8a8;
-            color: #181a1b;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .image-container img {
-            width: 30%;
-            height: auto;
-        }
-
-        @media screen and (max-width: 600px) {
-            .image-container {
-                flex-direction: column;
-            }
-
-            .image-container img {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-        }
-        h1 img {
-        width: 100%;
-        height: auto;
         
-    }
-    nav {margin-bottom: 40px;}
-    .image-container img:last-child {
-        margin-right: 120px;
-    }   
-        h2 {text-align: center;}
-        .dropdown {
-    position: relative;
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar > li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Mona Sans', sans-serif;
+    font-weight: bold;
+}
+
+.navbar li a:hover {
+    background-color: #111;
+}
+
+.dropdown {
     display: inline-block;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
     background-color:gray;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
     z-index: 1;
-    left: 0px;
-    top: 30px;
+    clear: both;
 }
+
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    text-align: left;
+    font-family: 'Mona Sans', sans-serif;
     font-weight: bold;
-    border-bottom: 1px solid #ddd;
-}
-.dropdown-content a:hover {
-    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-        
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+h1 img {
+    max-width: 100%;
+    max-height: 150px; /* Adjust this value as needed */
+    height: auto;
+}
+p, h2 {
+    color: white;
+}
+h2 {text-align: center;}
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image-container img {
+    width: 30%; /* Adjust this value as needed */
+    margin: 0.5%; /* Optional: Adds a little space around the images */
+}
+
+
+
     </style>        
 </head>
 <body>
     <h1><img src="../logo/1.jpg" alt=""></h1>
     <nav>
-        <a id="Home" href="#">Home</a>
-        <a id="News" href="../hw4/News.html">News</a>
-        <a id="FacultyMembers" href="../hw4/Faculty Members.html">Faculty Members</a>
-        <div class="dropdown">
-            <a id="Programs" href="#">Programs</a>
-            <div class="dropdown-content">
-                <a href="../hw4/IT.html">Information Technology</a>
-                <a href="../hw4/CS.html">Computer Science</a>
-                <a href="../hw4/ETC.html">Electronics and Telecommunications</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a id="ComputerLabs" href="#">Computer Labs</a>
-            <div class="dropdown-content">
-                <a href="../hw4/Lab1.html">Multimedia Lab</a>
-                <a href="../hw4/Lab2.html">E-Learning Lab</a>
-                <a href="../hw4/Lab3.html">Networking Lab</a>
-                <a href="../hw4/Lab4.html">IT Center Lab</a>
-            </div>
-        </div>
-
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="../hw4/News.html">News</a></li>
+            <li><a href="../hw4/Faculty Members.html">Faculty Members</a></li>
+            <li class="dropdown">
+                <a href="#">Programs</a>
+                <ul class="dropdown-content">
+                    <li><a href="../hw4/IT.html">Information Technology</a></li>
+                    <li><a href="../hw4/CS.html">Computer Science</a></li>
+                    <li><a href="../hw4/ETC.html">Electronics and Telecommunications</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Computer Labs</a>
+                <ul class="dropdown-content">
+                    <li><a href="../hw4/Lab1.html">Multimedia Lab</a></li>
+                    <li><a href="../hw4/Lab2.html">E-Learning Lab</a></li>
+                    <li><a href="../hw4/Lab3.html">Networking Lab</a></li>
+                    <li><a href="../hw4/Lab4.html">IT Center Lab</a></li>
+                </ul>
+            </li>
+        </ul>
     </nav>
+    
     <p>សូមស្វាគមន៍មកកាន់ មហាវិទ្យាល័យវិទ្យាសាស្រ្ត និងបច្ចេកវិទ្យា នៃសកលវិទ្យាល័យមក្ពុជា។ សម្រាប់ប្អូនដែលចង់បន្តការសិក្សា ថ្នាក់បរិញ្ញាបត្ររង ឬថ្នាក់បរិញ្ញាបត្រ។  សូមចុះឈ្មោះជាមួយយើងខ្ញុំ តាមរយៈអនឡាញ ឬទៅកាន់ សកលវិទ្យាល័យកម្ពុជាដោយផ្ទាល់ក៏បាន៕</p>
     <p>Welcome to the College of Science and Technology of The University of Cambodia. For Everyone who wishes to pursue for any AA and BA degrees of the study programms, please regester now on visit the campus of The Universty of Cambodia.</p>
     <div class="image-container">

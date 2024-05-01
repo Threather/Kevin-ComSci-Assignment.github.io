@@ -1,13 +1,14 @@
 window.onload = function() {
     // Elements
-    var table = document.getElementById("myTable");
     var iframe = document.getElementById("iframe");
     var backButton = document.getElementById("backButton");
+    var toggleButton = document.getElementById("toggleButton");
+    var courseLinks = document.getElementsByClassName("courseLink");
+    var courseSections = document.getElementsByClassName("courseSection");
+    var coursesTable = document.getElementById("coursesTable");
 
     // Student data
     let studentData = {
-        "class": "ITE103(Evening)",
-        "professor": "CHHUNNAN",
         "studentName": "Pom Kevin",
         "studentMajor": "Computer Science",
         "studentID": "60230633"
@@ -19,12 +20,50 @@ window.onload = function() {
     }
 
     // Hide elements initially
-    hideElement(table);
+    for (let i = 0; i < courseSections.length; i++) {
+        hideElement(courseSections[i]);
+    }
     hideElement(backButton);
+    hideElement(coursesTable);
+    hideElement(iframe);
 
     // Event listeners
-    document.getElementById("toggleButton").addEventListener("click", toggleTable);
-    
+    toggleButton.addEventListener("click", function() {
+        if (coursesTable.style.display === "none" && iframe.style.display === "none") {
+            showElement(coursesTable, "block");
+            backButton.dataset.state = "courses";
+        } else {
+            hideElement(coursesTable);
+            hideElement(iframe);
+            for (let i = 0; i < courseSections.length; i++) {
+                hideElement(courseSections[i]);
+            }
+            hideElement(backButton);
+            backButton.dataset.state = "";
+        }
+    });
+
+    for (let i = 0; i < courseLinks.length; i++) {
+        courseLinks[i].addEventListener("click", function(event) {
+            event.preventDefault();
+            displayAssignments(event.target.getAttribute("data-course"));
+            backButton.dataset.state = "assignments";
+        });
+    }
+
+    backButton.addEventListener("click", function() {
+        if (backButton.dataset.state === "homework") {
+            goBackToAssignments();
+        } else if (backButton.dataset.state === "assignments") {
+            goBackToCourses();
+        } else if (backButton.dataset.state === "courses") {
+            hideElement(coursesTable);
+            hideElement(backButton);
+            backButton.dataset.state = "";
+        }
+    });
+
+    // Homework links
     document.getElementById("homework1Link").addEventListener("click", function(event) {
         displayHomework(event, "./hw-file/hw1.html");
     });
@@ -37,7 +76,6 @@ window.onload = function() {
     document.getElementById("homework4Link").addEventListener("click", function(event) {
         displayHomework(event, "./hw-file/hw4.html");
     });
-    backButton.addEventListener("click", goBack);
 
     // Functions
     function hideElement(element) {
@@ -56,31 +94,42 @@ window.onload = function() {
         }, 0);
     }
 
-    function toggleTable() {
-        if (table.style.display === "none") {
-            showElement(table, "table");
+    function displayAssignments(course) {
+        // You can use the course parameter to filter the assignments for the selected course
+        var courseSection = document.getElementById(course);
+        if (courseSection) {
+            hideElement(coursesTable);
+            showElement(courseSection, "block");
+            showElement(backButton, "inline-block");
         } else {
-            hideElement(table);
+            alert("There are no assignments for this course yet.");
         }
+    }
+
+    function goBackToAssignments() {
+        hideElement(iframe);
+        for (let i = 0; i < courseSections.length; i++) {
+            showElement(courseSections[i], "block");
+        }
+        backButton.dataset.state = "assignments";
+    }
+
+    function goBackToCourses() {
+        for (let i = 0; i < courseSections.length; i++) {
+            hideElement(courseSections[i]);
+        }
+        showElement(coursesTable, "block");
+        backButton.dataset.state = "courses";
     }
 
     function displayHomework(event, homeworkFile) {
         event.preventDefault();
-        table.style.display = "none"; // Hide the table immediately
-        iframe.style.display = "block";
-        setTimeout(function() {
-            iframe.style.opacity = "1";
-            iframe.style.transform = "scaleY(1)";
-        }, 0);
-        showElement(backButton, "inline-block");
+        hideElement(coursesTable);
+        for (let i = 0; i < courseSections.length; i++) {
+            hideElement(courseSections[i]);
+        }
         iframe.src = homeworkFile;
-    }
-
-    function goBack() {
-        hideElement(iframe);
-        setTimeout(function() {
-            showElement(table, "table");
-        }, 500);
-        hideElement(backButton);
+        showElement(iframe, "block");
+        backButton.dataset.state = "homework";
     }
 };

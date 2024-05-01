@@ -94,4 +94,9 @@ table {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transform-origin: top;
 }
+#coursesTable {
+    opacity: 0;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+}
 

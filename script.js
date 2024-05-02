@@ -126,9 +126,6 @@ window.onload = function() {
 
     function goBackToAssignments() {
         hideElement(iframe);
-        for (let i = 0; i < courseSections.length; i++) {
-            hideElement(courseSections[i]);
-        }
         if (lastClickedCourse) {
             showElement(document.getElementById(lastClickedCourse), "block");
         }
@@ -154,3 +151,4 @@ window.onload = function() {
         backButton.dataset.state = "homework";
     }
 };
+

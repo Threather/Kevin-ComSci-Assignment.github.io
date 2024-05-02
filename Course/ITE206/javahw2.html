@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <style>
+        /* Add some basic styling for the button */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0074D9;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Table</h1>
+    <button id="showTableButton">Show Table</button>
+    <div id="tableContainer" style="display: none;">
+        <table>
+            <!-- Use a loop to generate rows and cells -->
+            <script>
+                const table = document.querySelector('table');
+                const numRows = 3;
+                const numCols = 5;
+                let cellValue = 1;
+
+                for (let i = 0; i < numRows; i++) {
+                    const row = table.insertRow();
+                    for (let j = 0; j < numCols; j++) {
+                        const cell = row.insertCell();
+                        cell.textContent = cellValue;
+                        cellValue++;
+                    }
+                }
+            </script>
+        </table>
+    </div>
+
+    <script>
+        // Get the button element
+        const showTableButton = document.getElementById('showTableButton');
+        // Get the table container div element
+        const tableContainer = document.getElementById('tableContainer');
+
+        // Add a click event listener to the button
+        showTableButton.addEventListener('click', () => {
+            // Toggle the display of the table container
+            tableContainer.style.display = tableContainer.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

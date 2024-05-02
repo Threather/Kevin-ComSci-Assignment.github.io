@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        /* Add some basic styling for the button */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0074D9;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>About Me</h1>
+    <button id="aboutButton">About me</button>
+    <div id="info" style="display: none;">
+        <p>Name: Pom Kevin</p>
+        <p>Studying at University of Cambodia</p>
+        <p>Majoring in Computer Science</p>
+        <p>Currently working full-time as a Data Analyst at SpeedWind Cambodia</p>
+    </div>
+
+    <script>
+        // Get the button element
+        const aboutButton = document.getElementById('aboutButton');
+        // Get the info div element
+        const infoDiv = document.getElementById('info');
+
+        // Add a click event listener to the button
+        aboutButton.addEventListener('click', () => {
+            // Toggle the display of the info div
+            infoDiv.style.display = infoDiv.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

@@ -27,6 +27,9 @@ window.onload = function() {
     hideElement(coursesTable);
     hideElement(iframe);
 
+    // Add a variable to keep track of the last clicked course
+    var lastClickedCourse = null;
+
     // Event listeners
     toggleButton.addEventListener("click", function() {
         if (coursesTable.style.display === "none" && iframe.style.display === "none") {
@@ -46,7 +49,8 @@ window.onload = function() {
     for (let i = 0; i < courseLinks.length; i++) {
         courseLinks[i].addEventListener("click", function(event) {
             event.preventDefault();
-            displayAssignments(event.target.getAttribute("data-course"));
+            lastClickedCourse = event.target.getAttribute("data-course");
+            displayAssignments(lastClickedCourse);
             backButton.dataset.state = "assignments";
         });
     }
@@ -63,7 +67,7 @@ window.onload = function() {
         }
     });
 
-    // Homework links
+    // ITE103
     document.getElementById("homework1Link").addEventListener("click", function(event) {
         displayHomework(event, "./Course/ITE103/hw-file/hw1.html");
     });
@@ -75,6 +79,20 @@ window.onload = function() {
     });
     document.getElementById("homework4Link").addEventListener("click", function(event) {
         displayHomework(event, "./Course/ITE103/hw-file/hw4.html");
+    });
+
+    // ITE206
+    document.getElementById("ite206homework1Link").addEventListener("click", function(event) {
+        displayHomework(event, "./Course/ITE206/javahw1.html");
+    });
+    document.getElementById("ite206homework2Link").addEventListener("click", function(event) {
+        displayHomework(event, "./Course/ITE206/javahw2.html");
+    });
+    document.getElementById("ite206homework3Link").addEventListener("click", function(event) {
+        displayHomework(event, "./Course/ITE206/javahw3.html");
+    });
+    document.getElementById("ite206homework4Link").addEventListener("click", function(event) {
+        displayHomework(event, "./Course/ITE206/javaghw1.html");
     });
 
     // Functions
@@ -109,7 +127,10 @@ window.onload = function() {
     function goBackToAssignments() {
         hideElement(iframe);
         for (let i = 0; i < courseSections.length; i++) {
-            showElement(courseSections[i], "block");
+            hideElement(courseSections[i]);
+        }
+        if (lastClickedCourse) {
+            showElement(document.getElementById(lastClickedCourse), "block");
         }
         backButton.dataset.state = "assignments";
     }

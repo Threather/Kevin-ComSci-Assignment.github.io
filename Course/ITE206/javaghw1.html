@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Define styles for the row */
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5; /* Set your desired background color */
+        }
+        .column img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <!-- First Column -->
+        <div class="column" id="timetableColumn">
+            <img src="" alt="Timetable Image" id="timetableImage">
+            <p>Timetable</p>
+        </div>
+
+        <!-- Second Column -->
+        <div class="column" id="pricingColumn">
+            <img src="" alt="Our Pricing Image" id="pricingImage">
+            <p>Our Pricing</p>
+        </div>
+
+        <!-- Third Column -->
+        <div class="column" id="galleryColumn">
+            <img src="" alt="Our Gallery Image" id="galleryImage">
+            <p>Our Gallery</p>
+        </div>
+    </div>
+
+    <script>
+        // Set image URLs dynamically
+        document.getElementById("timetableImage").src = "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?w=1800&t=st=1714413257~exp=1714413857~hmac=6b35d54de2821c07222bc20cd28282c5c8b7c42daaf1c2fc8f3d815112ca2efa";
+        document.getElementById("pricingImage").src = "https://img.freepik.com/free-vector/hand-drawn-winter-landscape_23-2148714661.jpg?w=1380&t=st=1714413283~exp=1714413883~hmac=bca457ecd5f78854441743ea313224d0df579bd9caf360bbb36dd9e3f7c22798";
+        document.getElementById("galleryImage").src = "https://img.freepik.com/premium-vector/natural-landscape-with-river-concept-design_263625-62.jpg";
+    </script>
+</body>
+</html>

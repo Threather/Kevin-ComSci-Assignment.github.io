@@ -65,16 +65,16 @@ window.onload = function() {
 
     // Homework links
     document.getElementById("homework1Link").addEventListener("click", function(event) {
-        displayHomework(event, "./hw-file/hw1.html");
+        displayHomework(event, "./Course/ITE103/hw-file/hw1.html");
     });
     document.getElementById("homework2Link").addEventListener("click", function(event) {
-        displayHomework(event, "./hw-file/hw2.html");
+        displayHomework(event, "./Course/ITE103/hw-file/hw2.html");
     });
     document.getElementById("homework3Link").addEventListener("click", function(event) {
-        displayHomework(event, "./hw-file/hw3.html");
+        displayHomework(event, "./Course/ITE103/hw-file/hw3.html");
     });
     document.getElementById("homework4Link").addEventListener("click", function(event) {
-        displayHomework(event, "./hw-file/hw4.html");
+        displayHomework(event, "./Course/ITE103/hw-file/hw4.html");
     });
 
     // Functions

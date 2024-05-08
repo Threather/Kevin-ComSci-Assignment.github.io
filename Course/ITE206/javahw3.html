@@ -15,7 +15,7 @@
             margin: 0;
         }
 
-        form {
+        .login-form {
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -55,43 +55,40 @@
     </style>
 </head>
 <body>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <input type="checkbox" id="showPassword">
-        <label for="showPassword">Show Password</label>
-        <br>
-        <button type="button" id="loginButton">Login</button>
-    </form>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        function LoginForm() {
+            const [username, setUsername] = React.useState('');
+            const [password, setPassword] = React.useState('');
+            const [showPassword, setShowPassword] = React.useState(false);
 
-    <script>
-        const passwordInput = document.getElementById('password');
-        const showPasswordCheckbox = document.getElementById('showPassword');
-        const loginButton = document.getElementById('loginButton');
+            const handleLogin = () => {
+                if (username.trim() === '') {
+                    alert('The Username is required');
+                } else {
+                    alert(`Welcome ${username}!`);
+                }
+            };
 
-        showPasswordCheckbox.addEventListener('change', () => {
-            if (showPasswordCheckbox.checked) {
-                passwordInput.type = 'text';
-                showPasswordCheckbox.nextElementSibling.textContent = 'Hide Password';
-            } else {
-                passwordInput.type = 'password';
-                showPasswordCheckbox.nextElementSibling.textContent = 'Show Password';
-            }
-        });
+            return (
+                <form className="login-form">
+                    <label htmlFor="username">Username:</label>
+                    <input type="text" id="username" name="username" required value={username} onChange={e => setUsername(e.target.value)} />
+                    <br />
+                    <label htmlFor="password">Password:</label>
+                    <input type={showPassword ? 'text' : 'password'} id="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
+                    <input type="checkbox" id="showPassword" checked={showPassword} onChange={() => setShowPassword(!showPassword)} />
+                    <label htmlFor="showPassword">{showPassword ? 'Hide Password' : 'Show Password'}</label>
+                    <br />
+                    <button type="button" onClick={handleLogin}>Login</button>
+                </form>
+            );
+        }
 
-        loginButton.addEventListener('click', () => {
-            const usernameInput = document.getElementById('username');
-            const username = usernameInput.value.trim();
-
-            if (username === '') {
-                alert('The Username is required');
-            } else {
-                alert(`Welcome ${username}!`);
-            }
-        });
+        ReactDOM.render(<LoginForm />, document.getElementById('root'));
     </script>
 </body>
 </html>
